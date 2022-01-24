@@ -1,0 +1,63 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
+.header {
+  display: flex;
+  height: 4.5rem;
+  border-bottom: 1px solid #ececec;
+}
+.header__nav {
+  display: flex;
+  width: 100%;
+  justify-content: end;
+  align-items: center;
+}
+.logo__wrapper {
+  margin-right: auto;
+  height: 55%;
+}
+.logo__wrapper img {
+  height: 100%;
+  margin-top: 0.2rem;
+  margin-left: 1rem;
+}
+.nav__login {
+  display: flex;
+  gap: 1rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  justify-items: space-around;
+  border-left: 1px solid #ececec;
+}
+.header__nav ul {
+  display: flex;
+  list-style-type: none;
+  gap: 1rem;
+  height: 65%;
+}
+.header__nav li {
+  align-self: center;
+}
+.nav__link {
+  color: #a8a8a8;
+  font-weight: 600;
+  font-family: 'Inter', sans-serif;
+  transition: all 0.3s ease-in-out;
+  text-decoration: none;
+}
+.nav__link:hover {
+  color: #2c2c2c;
+}
+.nav__link--active {
+  color: red;
+}
+.login__button {
+  background-color: #ff6c37;
+  padding: 0.6rem;
+  color: white;
+  transition: all 0.3s ease-in-out;
+  border-radius: 12px;
+}
+.login__button:hover {
+  background-color: #ff9771;
+  color: white;
+}
+
