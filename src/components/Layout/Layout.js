@@ -1,10 +1,10 @@
 import React from 'react';
 import NavBar from '../NavBar/NavBar';
 
-const Layout = ({ children }) => {
+const Layout = ({ children, theme }) => {
   return (
     <React.Fragment>
-      <NavBar />
+      <NavBar theme = {theme} />
       <main>{children}</main>
     </React.Fragment>
   );

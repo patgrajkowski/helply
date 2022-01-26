@@ -27,6 +27,7 @@
   left: 0;
   background-color: white;
   width: 100%;
+  height: calc(100% - 4.5rem);
 }
 .nav ul {
   list-style-type: none;
@@ -60,4 +61,22 @@
   color: white;
   border-radius: 12px;
   margin-left: 1.5rem;
+}
+.header-dark {
+  border-color: #363636;
+}
+.nav-dark {
+  background-color: #202020;
+}
+.nav__login-dark {
+  border-color: #363636;
+}
+.nav__link-dark {
+  color: #5f5f5f;
+}
+.nav__link-dark:hover {
+  color: white;
+}
+.login__button-dark {
+  color: white;
 }

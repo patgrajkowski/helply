@@ -1,0 +1,14 @@
+.button {
+  all: unset;
+  cursor: pointer;
+  border: 1px solid #ff6c37;
+  padding: 0.6rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  color: #ff6c37;
+  text-align: center;
+}
+.button-primary {
+  background-color: #ff6c37;
+  color: white;
+}
