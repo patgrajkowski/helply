@@ -1,10 +1,14 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { CgMenu, CgClose } from 'react-icons/cg';
 import styles from './MobileNavBar.module.css';
 import logo from '../../images/logo.svg';
 import { NavLink } from 'react-router-dom';
+import { IoMdMoon } from 'react-icons/io';
+import { BsSunFill } from 'react-icons/bs';
+import ThemeContext from '../../store/ThemeContext';
 const MobileNavBar = ({ theme }) => {
   const [menuOpen, setMenuOpen] = useState(false);
+  const themeContext = useContext(ThemeContext);
   const openMenu = () => {
     setMenuOpen(true);
   };
@@ -107,6 +111,33 @@ const MobileNavBar = ({ theme }) => {
                 </NavLink>
               </li>
             </span>
+            <li className={styles.toggle__wrapper}>
+              <input
+                type='checkbox'
+                id='switch'
+                className={styles.toggle}
+                onChange={themeContext.changeTheme}
+                checked={theme !== 'light'}
+              />
+              <label htmlFor='switch' className={styles.toggle__label}></label>
+              {theme === 'light' ? (
+                <BsSunFill
+                  className={`${styles['toggle__icon-light']}`}
+                  onClick={() => {
+                    document.getElementById('switch').checked = true;
+                    themeContext.changeTheme();
+                  }}
+                />
+              ) : (
+                <IoMdMoon
+                  className={`${styles['toggle__icon-dark']}`}
+                  onClick={() => {
+                    document.getElementById('switch').checked = false;
+                    themeContext.changeTheme();
+                  }}
+                />
+              )}
+            </li>
           </ul>
         </nav>
       )}

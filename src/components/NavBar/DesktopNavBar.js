@@ -29,7 +29,7 @@ const DesktopNavBar = ({ theme }) => {
             type='checkbox'
             id='switch'
             className={styles.toggle}
-            onClick={themeContext.changeTheme}
+            onChange={themeContext.changeTheme}
             checked={theme !== 'light'}
           />
           <label htmlFor='switch' className={styles.toggle__label}></label>
