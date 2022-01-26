@@ -2,12 +2,10 @@ import React, { useContext } from 'react';
 import styles from './DesktopNavBar.module.css';
 import logo from '../../images/logo.svg';
 import { NavLink } from 'react-router-dom';
-import ThemeContext from '../../store/ThemeContext';
-import { BsSunFill } from 'react-icons/bs';
-import { IoMdMoon } from 'react-icons/io';
+
+import DarkModeToggler from '../DarkModeToggler/DarkModeToggler';
 
 const DesktopNavBar = ({ theme }) => {
-  const themeContext = useContext(ThemeContext);
   const navLinkClasses =
     theme === 'light'
       ? styles.nav__link
@@ -25,31 +23,7 @@ const DesktopNavBar = ({ theme }) => {
           <NavLink to='/'>
             <img src={logo} alt='logo'></img>
           </NavLink>
-          <input
-            type='checkbox'
-            id='switch'
-            className={styles.toggle}
-            onChange={themeContext.changeTheme}
-            checked={theme !== 'light'}
-          />
-          <label htmlFor='switch' className={styles.toggle__label}></label>
-          {theme === 'light' ? (
-            <BsSunFill
-              className={`${styles['toggle__icon-light']}`}
-              onClick={() => {
-                document.getElementById('switch').checked = true;
-                themeContext.changeTheme();
-              }}
-            />
-          ) : (
-            <IoMdMoon
-              className={`${styles['toggle__icon-dark']}`}
-              onClick={() => {
-                document.getElementById('switch').checked = false;
-                themeContext.changeTheme();
-              }}
-            />
-          )}
+          <DarkModeToggler />
         </div>
         <ul>
           <li>

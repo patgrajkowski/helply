@@ -3,12 +3,9 @@ import { CgMenu, CgClose } from 'react-icons/cg';
 import styles from './MobileNavBar.module.css';
 import logo from '../../images/logo.svg';
 import { NavLink } from 'react-router-dom';
-import { IoMdMoon } from 'react-icons/io';
-import { BsSunFill } from 'react-icons/bs';
-import ThemeContext from '../../store/ThemeContext';
+import DarkModeToggler from '../DarkModeToggler/DarkModeToggler';
 const MobileNavBar = ({ theme }) => {
   const [menuOpen, setMenuOpen] = useState(false);
-  const themeContext = useContext(ThemeContext);
   const openMenu = () => {
     setMenuOpen(true);
   };
@@ -45,6 +42,7 @@ const MobileNavBar = ({ theme }) => {
       <NavLink to='/' className={styles.logo__link}>
         <img src={logo} alt='logo' className={styles.nav__logo} />
       </NavLink>
+      <DarkModeToggler className={styles.toggler} />
       {menuOpen && (
         <nav
           className={
@@ -56,6 +54,7 @@ const MobileNavBar = ({ theme }) => {
           <ul>
             <li>
               <NavLink
+                onClick={closeMenu}
                 to='/'
                 className={
                   theme === 'light'
@@ -68,6 +67,7 @@ const MobileNavBar = ({ theme }) => {
             </li>
             <li>
               <NavLink
+                onClick={closeMenu}
                 to='/'
                 className={
                   theme === 'light'
@@ -87,6 +87,7 @@ const MobileNavBar = ({ theme }) => {
             >
               <li>
                 <NavLink
+                  onClick={closeMenu}
                   to='/login'
                   className={
                     theme === 'light'
@@ -99,6 +100,7 @@ const MobileNavBar = ({ theme }) => {
               </li>
               <li>
                 <NavLink
+                  onClick={closeMenu}
                   to='/register'
                   className={
                     theme === 'light'
@@ -111,33 +113,6 @@ const MobileNavBar = ({ theme }) => {
                 </NavLink>
               </li>
             </span>
-            <li className={styles.toggle__wrapper}>
-              <input
-                type='checkbox'
-                id='switch'
-                className={styles.toggle}
-                onChange={themeContext.changeTheme}
-                checked={theme !== 'light'}
-              />
-              <label htmlFor='switch' className={styles.toggle__label}></label>
-              {theme === 'light' ? (
-                <BsSunFill
-                  className={`${styles['toggle__icon-light']}`}
-                  onClick={() => {
-                    document.getElementById('switch').checked = true;
-                    themeContext.changeTheme();
-                  }}
-                />
-              ) : (
-                <IoMdMoon
-                  className={`${styles['toggle__icon-dark']}`}
-                  onClick={() => {
-                    document.getElementById('switch').checked = false;
-                    themeContext.changeTheme();
-                  }}
-                />
-              )}
-            </li>
           </ul>
         </nav>
       )}

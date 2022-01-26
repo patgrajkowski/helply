@@ -1,8 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import RegisterForm from '../../RegisterForm/RegisterForm';
-import styles from './Register.module.css';
-const Register = ({ theme }) => {
+import LoginForm from '../../components/Forms/LoginForm/LoginForm';
+import styles from './Login.module.css';
+const Login = ({ theme }) => {
   return (
     <div
       className={
@@ -18,19 +18,15 @@ const Register = ({ theme }) => {
             : styles.form__wrapper + ` ${styles['form__wrapper-dark']}`
         }
       >
-        <h1>Dołącz do helply!</h1>
-        <p>
-          Załóż konto aby skorzystać z pomocy korepetytorów lub samemu zacząć
-          pomagać
-        </p>
-        <RegisterForm theme={theme} />
+        <h1>Zaloguj się</h1>
+        <LoginForm theme={theme} />
         <hr></hr>
         <p>
-          Masz już konto? <Link to='/login'>Zaloguj się</Link>
+          Nie masz konta? <Link to='/login'>Załóż konto</Link> za darmo
         </p>
       </div>
     </div>
   );
 };
 
-export default Register;
+export default Login;
