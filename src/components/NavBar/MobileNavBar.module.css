@@ -4,6 +4,7 @@
   border-bottom: 1px solid #ececec;
   align-items: center;
   justify-content: center;
+  background: inherit;
 }
 .icon {
   height: 100%;
@@ -31,6 +32,7 @@
   background-color: white;
   width: 100%;
   height: calc(100% - 4.5rem);
+  z-index: 1000;
 }
 .nav ul {
   list-style-type: none;

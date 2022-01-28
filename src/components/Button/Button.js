@@ -5,7 +5,11 @@ const Button = ({ type, onClick, className, children, primary }) => {
     ? styles.button + ` ${styles['button-primary']}`
     : styles.button;
   return (
-    <button type={type || 'button'} onClick={onClick} className={classes}>
+    <button
+      type={type || 'button'}
+      onClick={onClick}
+      className={`${classes} ${className}`}
+    >
       {children}
     </button>
   );

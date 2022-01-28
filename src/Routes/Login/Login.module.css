@@ -38,6 +38,9 @@
   margin-top: 2rem;
   border-top: 1px solid #ececec;
 }
+
+/* MOBILE VIEW */
+
 @media screen and (max-width: 680px) {
   .form__wrapper {
     width: 100%;
@@ -51,7 +54,9 @@
     margin-right: auto;
   }
 }
+
 /* DARK MODE */
+
 .form__wrapper-dark {
   border: 1px solid #363636;
 }
