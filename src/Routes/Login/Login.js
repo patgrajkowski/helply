@@ -22,7 +22,7 @@ const Login = ({ theme }) => {
         <LoginForm theme={theme} />
         <hr></hr>
         <p>
-          Nie masz konta? <Link to='/login'>Załóż konto</Link> za darmo
+          Nie masz konta? <Link to='/register'>Załóż konto</Link> za darmo
         </p>
       </div>
     </div>
