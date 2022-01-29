@@ -9,6 +9,11 @@
   width: 18rem;
   height: 16rem;
   gap: 1rem;
+  transition: border 0.3s ease-out;
+}
+.ad:hover {
+  border: solid black 1px;
+  cursor: pointer;
 }
 .ad svg {
   color: #ff6c37;
@@ -47,6 +52,13 @@
   align-items: center;
   gap: 0.6rem;
 }
+.user__name {
+  transition: 0.3s color ease-in-out;
+}
+.user__name:hover {
+  color: #ff6c37;
+  text-decoration: underline;
+}
 .user__img {
   width: 4rem;
   border-radius: 50%;
@@ -76,9 +88,18 @@
   right: -0.5rem;
   background: #ececec;
 }
+/* MOBILE VIEW */
+@media screen and (max-width: 630px) {
+  .ad {
+    width: 90%;
+  }
+}
 /* DARK MODE */
 .ad-dark {
   border: 1px #363636 solid;
+}
+.ad-dark:hover {
+  border: 1px solid white;
 }
 .ad-dark .ad__details::after,
 .ad-dark .rate__stars::after {
@@ -87,4 +108,7 @@
 .ad-dark .details__subject,
 .ad-dark .user__name {
   color: white;
+}
+.ad-dark .user__name:hover {
+  color: #ff6c37;
 }
