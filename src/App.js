@@ -2,9 +2,10 @@ import { useContext } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './App.css';
 import Layout from './components/Layout/Layout';
-import Home from './Routes/Home/Home';
-import Login from './Routes/Login/Login';
-import Register from './Routes/Register/Register';
+import ForgotPassword from './routes/ForgotPassword/ForgotPassword';
+import Home from './routes/Home/Home';
+import Login from './routes/Login/Login';
+import Register from './routes/Register/Register';
 import ThemeContext from './store/ThemeContext';
 
 function App() {
@@ -19,6 +20,10 @@ function App() {
         <Routes>
           <Route path='/' element={<Home theme={theme} />} exact />
           <Route path='/login' element={<Login theme={theme} />} />
+          <Route
+            path='/forgot-password'
+            element={<ForgotPassword theme={theme} />}
+          />
           <Route path='/register' element={<Register theme={theme} />} />
         </Routes>
       </Layout>

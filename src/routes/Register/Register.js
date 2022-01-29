@@ -11,20 +11,14 @@ const Register = ({ theme }) => {
           : styles.wrapper + ` ${styles['wrapper-dark']}`
       }
     >
-      <div
-        className={
-          theme === 'light'
-            ? styles.form__wrapper
-            : styles.form__wrapper + ` ${styles['form__wrapper-dark']}`
-        }
-      >
-        <h1>Dołącz do helply!</h1>
-        <p>
+      <div className={styles.form__wrapper}>
+        <h1 className={styles.title}>Dołącz do helply!</h1>
+        <p className={styles.paragraph}>
           Załóż konto aby skorzystać z pomocy korepetytorów lub samemu zacząć
           pomagać
         </p>
         <RegisterForm theme={theme} />
-        <hr></hr>
+        <hr />
         <p>
           Masz już konto? <Link to='/login'>Zaloguj się</Link>
         </p>

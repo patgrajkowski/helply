@@ -11,13 +11,7 @@ const Login = ({ theme }) => {
           : styles.wrapper + ` ${styles['wrapper-dark']}`
       }
     >
-      <div
-        className={
-          theme === 'light'
-            ? styles.form__wrapper
-            : styles.form__wrapper + ` ${styles['form__wrapper-dark']}`
-        }
-      >
+      <div className={styles.form__wrapper}>
         <h1>Zaloguj się</h1>
         <LoginForm theme={theme} />
         <hr></hr>

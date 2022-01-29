@@ -13,10 +13,11 @@
   justify-content: center;
   align-items: center;
 }
-.form__wrapper h1 {
+.title {
   margin: 0;
+  text-align: center;
 }
-.form__wrapper p {
+.paragraph {
   text-align: center;
   color: #a8a8a8;
 }
@@ -35,6 +36,9 @@
   margin-top: 2rem;
   border-top: 1px solid #ececec;
 }
+
+/* MOBILE VIEW */
+
 @media screen and (max-width: 680px) {
   .form__wrapper {
     width: 100%;
@@ -44,16 +48,18 @@
     padding: 0;
   }
 }
+
 /* DARK MODE */
-.form__wrapper-dark {
-  border: 1px solid #363636;
+
+.wrapper-dark .form__wrapper {
+  border-color: #363636;
 }
-.form__wrapper-dark p {
+.wrapper-dark .form__wrapper p {
   color: #5f5f5f;
 }
-.form__wrapper-dark h1 {
+.wrapper-dark .form__wrapper h1 {
   color: white;
 }
-.form__wrapper-dark hr {
+.wrapper-dark .form__wrapper hr {
   border-color: #363636;
 }
