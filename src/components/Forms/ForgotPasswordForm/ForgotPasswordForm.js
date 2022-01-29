@@ -1,6 +1,5 @@
 import { useFormik } from 'formik';
 import React from 'react';
-import { Link } from 'react-router-dom';
 import * as Yup from 'yup';
 import Button from '../../Button/Button';
 import EmailField from '../../Fields/EmailField/EmailField';
@@ -41,7 +40,7 @@ const ForgotPasswordForm = ({ theme }) => {
         )}
       </span>
       <Button type='submit' id='register'>
-        Zaloguj się
+        Odzyskaj konto
       </Button>
     </form>
   );
