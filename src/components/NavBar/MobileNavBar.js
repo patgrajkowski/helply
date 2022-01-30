@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useState } from 'react';
 import { CgMenu, CgClose } from 'react-icons/cg';
 import styles from './MobileNavBar.module.css';
 import logo from '../../images/logo.svg';
