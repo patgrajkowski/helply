@@ -5,6 +5,7 @@ import Layout from './components/Layout/Layout';
 import ForgotPassword from './routes/ForgotPassword/ForgotPassword';
 import Home from './routes/Home/Home';
 import Login from './routes/Login/Login';
+import NewPost from './routes/NewPost/NewPost';
 import Register from './routes/Register/Register';
 import ThemeContext from './store/ThemeContext';
 
@@ -25,7 +26,7 @@ function App() {
             element={<ForgotPassword theme={theme} />}
           />
           <Route path='/register' element={<Register theme={theme} />} />
-          <Route path='/new-post' element={<Login theme={theme} />} />
+          <Route path='/new-post' element={<NewPost theme={theme} />} />
         </Routes>
       </Layout>
     </BrowserRouter>

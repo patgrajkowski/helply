@@ -1,0 +1,90 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  gap: 1rem;
+  border: 1px solid #ececec;
+  padding: 2rem 4rem;
+  border-radius: 10px;
+}
+.form__error {
+  margin: 0;
+  width: 100%;
+  color: #a8a8a8;
+  text-align: left;
+  width: 100%;
+}
+.form div {
+  border: 1px solid #ececec;
+  border-radius: 10px;
+  padding: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+}
+.form h3 {
+  position: relative;
+}
+.form h3,
+.form h4 {
+  color: #a8a8a8;
+  font-weight: normal;
+}
+.form h3::after {
+  content: '';
+  width: 30rem;
+  height: 1px;
+  background-color: #ececec;
+  position: absolute;
+  bottom: -0.7rem;
+  left: 0;
+}
+.form__buttons {
+  margin-top: 2rem;
+  display: flex;
+  align-self: end;
+  gap: 2rem;
+}
+.form__button {
+  width: 6rem;
+}
+.number__input {
+  width: 14rem;
+}
+.form__textarea {
+  height: 10rem;
+}
+
+/* MOBILE VIEW */
+
+@media screen and (max-width: 680px) {
+  .form {
+    width: 100%;
+    padding: 0;
+    border: 0px;
+  }
+  .form__buttons {
+    gap: 1rem;
+    flex-direction: column;
+    align-self: stretch;
+  }
+  .form__button {
+    width: 100%;
+  }
+  .form h3::after {
+    width: 75%;
+  }
+}
+
+/* DARK MODE */
+
+.form-dark,
+.form-dark div {
+  border-color: #363636;
+}
+.form-dark h3,
+.form-dark h4 {
+  color: #a8a8a8;
+}
+.form-dark h3::after {
+  background-color: #363636;
+}
