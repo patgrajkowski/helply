@@ -21,23 +21,9 @@ const MobileNavBar = ({ theme }) => {
       }
     >
       {menuOpen ? (
-        <CgClose
-          className={
-            theme === 'light'
-              ? styles.icon
-              : styles.icon + ` ${styles['icon-dark']}`
-          }
-          onClick={closeMenu}
-        />
+        <CgClose className={styles.icon} onClick={closeMenu} />
       ) : (
-        <CgMenu
-          className={
-            theme === 'light'
-              ? styles.icon
-              : styles.icon + ` ${styles['icon-dark']}`
-          }
-          onClick={openMenu}
-        />
+        <CgMenu className={styles.icon} onClick={openMenu} />
       )}
       <NavLink to='/' className={styles.logo__link}>
         <img src={logo} alt='logo' className={styles.nav__logo} />
@@ -55,12 +41,8 @@ const MobileNavBar = ({ theme }) => {
             <li>
               <NavLink
                 onClick={closeMenu}
-                to='/'
-                className={
-                  theme === 'light'
-                    ? styles.nav__link
-                    : styles.nav__link + ` ${styles['nav__link-dark']}`
-                }
+                to='/categories'
+                className={styles.nav__link}
               >
                 Kategorie
               </NavLink>
@@ -68,32 +50,18 @@ const MobileNavBar = ({ theme }) => {
             <li>
               <NavLink
                 onClick={closeMenu}
-                to='/'
-                className={
-                  theme === 'light'
-                    ? styles.nav__link
-                    : styles.nav__link + ` ${styles['nav__link-dark']}`
-                }
+                to='/new-post'
+                className={styles.nav__link}
               >
                 Dodaj ogłoszenie
               </NavLink>
             </li>
-            <span
-              className={
-                theme === 'light'
-                  ? styles.nav__login
-                  : styles.nav__login + ` ${styles['nav__login-dark']}`
-              }
-            >
+            <span className={styles.nav__login}>
               <li>
                 <NavLink
                   onClick={closeMenu}
                   to='/login'
-                  className={
-                    theme === 'light'
-                      ? styles.nav__link
-                      : styles.nav__link + ` ${styles['nav__link-dark']}`
-                  }
+                  className={styles.nav__link}
                 >
                   Zaloguj się
                 </NavLink>
@@ -102,12 +70,7 @@ const MobileNavBar = ({ theme }) => {
                 <NavLink
                   onClick={closeMenu}
                   to='/register'
-                  className={
-                    theme === 'light'
-                      ? styles.login__button
-                      : styles.login__button +
-                        ` ${styles['login__button-dark']}`
-                  }
+                  className={styles.login__button}
                 >
                   Zarejestruj się
                 </NavLink>

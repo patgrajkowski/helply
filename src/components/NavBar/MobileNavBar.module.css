@@ -67,21 +67,22 @@
   border-radius: 12px;
   margin-left: 1.5rem;
 }
+
+/* DARK MODE */
+
 .header-dark {
   border-color: #363636;
 }
-.nav-dark {
+.header-dark .nav {
   background-color: #202020;
 }
-.nav__login-dark {
+.header-dark .nav__login {
   border-color: #363636;
 }
-.nav__link-dark {
+.header-dark .nav__link {
   color: #5f5f5f;
 }
-.nav__link-dark:hover {
-  color: white;
-}
-.login__button-dark {
+.header-dark .nav__link:hover,
+.header-dark .login__button {
   color: white;
 }

@@ -42,7 +42,6 @@
 .nav__link {
   color: #a8a8a8;
   font-weight: 600;
-  font-family: 'Inter', sans-serif;
   transition: all 0.3s ease-in-out;
   text-decoration: none;
 }
@@ -61,24 +60,27 @@
   color: white;
   transition: all 0.3s ease-in-out;
   border-radius: 12px;
+  text-decoration: none;
 }
 .login__button:hover {
   background-color: #db3e05;
   color: white;
 }
+
 /* DARK THEME */
+
 .header-dark {
   border-color: #363636;
 }
-.nav__login-dark {
+.header-dark .nav__login {
   border-color: #363636;
 }
-.nav__link-dark {
+.header-dark .nav__link {
   color: #5f5f5f;
 }
-.nav__link-dark:hover {
+.header-dark .nav__link:hover {
   color: white;
 }
-.login__button-dark {
+.header-dark .login__button {
   color: white;
 }

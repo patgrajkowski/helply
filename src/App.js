@@ -25,6 +25,7 @@ function App() {
             element={<ForgotPassword theme={theme} />}
           />
           <Route path='/register' element={<Register theme={theme} />} />
+          <Route path='/new-post' element={<Login theme={theme} />} />
         </Routes>
       </Layout>
     </BrowserRouter>

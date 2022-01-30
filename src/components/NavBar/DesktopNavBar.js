@@ -28,11 +28,11 @@ const DesktopNavBar = ({ theme }) => {
         <ul>
           <li>
             <NavLink
-              to='/'
+              to='/categories'
               className={({ isActive }) =>
                 isActive
-                  ? `${navLinkClasses} ${styles['nav__link-active']}`
-                  : navLinkClasses
+                  ? styles.nav__link + `${styles['nav__link-active']}`
+                  : styles.nav__link
               }
             >
               Kategorie
@@ -40,44 +40,31 @@ const DesktopNavBar = ({ theme }) => {
           </li>
           <li>
             <NavLink
-              to='/'
+              to='/new-post'
               className={({ isActive }) =>
                 isActive
-                  ? `${navLinkClasses} ${styles['nav__link-active']}`
-                  : navLinkClasses
+                  ? styles.nav__link + `${styles['nav__link-active']}`
+                  : styles.nav__link
               }
             >
               Dodaj ogłoszenie
             </NavLink>
           </li>
-          <span
-            className={
-              theme === 'light'
-                ? styles.nav__login
-                : styles.nav__login + ` ${styles['nav__login-dark']}`
-            }
-          >
+          <span className={styles.nav__login}>
             <li>
               <NavLink
                 to='/login'
                 className={({ isActive }) =>
                   isActive
-                    ? `${navLinkClasses} ${styles['nav__link-active']}`
-                    : navLinkClasses
+                    ? styles.nav__link + `${styles['nav__link-active']}`
+                    : styles.nav__link
                 }
               >
                 Zaloguj się
               </NavLink>
             </li>
             <li>
-              <NavLink
-                to='/register'
-                className={`${navLinkClasses} ${
-                  theme === 'light'
-                    ? styles.login__button
-                    : styles.login__button + ` ${styles['login__button-dark']}`
-                }`}
-              >
+              <NavLink to='/register' className={styles.login__button}>
                 Zarejestruj się
               </NavLink>
             </li>
