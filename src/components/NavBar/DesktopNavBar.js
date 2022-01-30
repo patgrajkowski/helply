@@ -4,6 +4,7 @@ import logo from '../../images/logo.svg';
 import { NavLink } from 'react-router-dom';
 
 import DarkModeToggler from '../DarkModeToggler/DarkModeToggler';
+import Button from '../Button/Button';
 
 const DesktopNavBar = ({ theme }) => {
   const navLinkClasses =
@@ -31,7 +32,7 @@ const DesktopNavBar = ({ theme }) => {
               to='/categories'
               className={({ isActive }) =>
                 isActive
-                  ? styles.nav__link + `${styles['nav__link-active']}`
+                  ? styles.nav__link + ` ${styles['nav__link-active']}`
                   : styles.nav__link
               }
             >
@@ -43,7 +44,7 @@ const DesktopNavBar = ({ theme }) => {
               to='/new-post'
               className={({ isActive }) =>
                 isActive
-                  ? styles.nav__link + `${styles['nav__link-active']}`
+                  ? styles.nav__link + ` ${styles['nav__link-active']}`
                   : styles.nav__link
               }
             >
@@ -56,7 +57,7 @@ const DesktopNavBar = ({ theme }) => {
                 to='/login'
                 className={({ isActive }) =>
                   isActive
-                    ? styles.nav__link + `${styles['nav__link-active']}`
+                    ? styles.nav__link + ` ${styles['nav__link-active']}`
                     : styles.nav__link
                 }
               >
@@ -65,7 +66,7 @@ const DesktopNavBar = ({ theme }) => {
             </li>
             <li>
               <NavLink to='/register' className={styles.login__button}>
-                Zarejestruj się
+                <Button primary='true'>Zarejestruj się</Button>
               </NavLink>
             </li>
           </span>
