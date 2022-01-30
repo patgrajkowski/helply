@@ -44,13 +44,8 @@
   transition: all 0.3s ease-in-out;
   text-decoration: none;
 }
-.nav__link:hover {
-  color: #2c2c2c;
-}
+.nav__link:hover,
 .nav__link-active {
-  color: #ff6c37;
-}
-.nav__link-active:hover {
   color: #ff6c37;
 }
 .login__button {
