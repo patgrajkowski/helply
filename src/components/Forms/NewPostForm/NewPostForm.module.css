@@ -43,6 +43,9 @@
   align-self: end;
   gap: 2rem;
 }
+.form__buttons a {
+  text-decoration: none;
+}
 .form__button {
   width: 6rem;
 }
@@ -84,7 +87,7 @@
 }
 .form__categories input:active + label,
 .form__levels input:active + label {
-  transform: scale(1.1);
+  transform: scale(0.9);
 }
 
 /* MOBILE VIEW */

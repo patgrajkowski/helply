@@ -1,5 +1,6 @@
 import { useFormik } from 'formik';
 import React from 'react';
+import { Link } from 'react-router-dom';
 import * as Yup from 'yup';
 import Button from '../../Button/Button';
 import InputField from '../../Fields/InputField/InputField';
@@ -121,7 +122,9 @@ const NewPostForm = ({ theme }) => {
         </div>
       </span>
       <span className={styles.form__buttons}>
-        <Button className={styles.form__button}>Anuluj</Button>
+        <Link to='/'>
+          <Button className={styles.form__button}>Anuluj</Button>
+        </Link>
         <Button className={styles.form__button} primary='true'>
           Dodaj
         </Button>
