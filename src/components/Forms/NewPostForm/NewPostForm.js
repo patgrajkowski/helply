@@ -69,40 +69,55 @@ const NewPostForm = ({ theme }) => {
       ></TextArea>
       <span>
         <h4>Kategorie</h4>
-        <div>
-          <input type='checkbox' value='languages' />
-          <label for='languages'>Języki obce</label>
-          <input type='checkbox' value='math' />
-          <label for='math'>Matematyka</label>
-          <input type='checkbox' value='economy' />
-          <label for='math'>Ekonomia</label>
-          <input type='checkbox' value='architecture' />
-          <label for='architecture'>Architektura</label>
-          <input type='checkbox' value='it' />
-          <label for='it'>Informatyka</label>
-          <input type='checkbox' value='coding' />
-          <label for='coding'>Programowanie</label>
-          <input type='checkbox' value='biology' />
-          <label for='biology'>Biologia</label>
-          <input type='checkbox' value='history' />
-          <label for='history'>Historia</label>
-          <input type='checkbox' value='law' />
-          <label for='law'>Prawo</label>
-          <input type='checkbox' value='ethics' />
-          <label for='ethics'>Etyka</label>
-          <input type='checkbox' value='chemistry' />
-          <label for='chemistry'>Chemia</label>
+        <div className={styles.form__categories}>
+          <input
+            type='checkbox'
+            value='languages'
+            id='languages'
+            name='languages'
+          />
+          <label htmlFor='languages'>Języki obce</label>
+          <input type='checkbox' value='math' name='math' id='math' />
+          <label htmlFor='math'>Matematyka</label>
+          <input type='checkbox' value='economy' id='economy' name='economy' />
+          <label htmlFor='economy'>Ekonomia</label>
+          <input
+            type='checkbox'
+            value='architecture'
+            id='architecture'
+            name='architecture'
+          />
+          <label htmlFor='architecture'>Architektura</label>
+          <input type='checkbox' value='it' id='it' name='it' />
+          <label htmlFor='it'>Informatyka</label>
+          <input type='checkbox' value='coding' name='coding' id='coding' />
+          <label htmlFor='coding'>Programowanie</label>
+          <input type='checkbox' value='biology' id='biology' name='biology' />
+          <label htmlFor='biology'>Biologia</label>
+          <input type='checkbox' value='history' id='history' name='history' />
+          <label htmlFor='history'>Historia</label>
+          <input type='checkbox' value='law' id='law' name='law' />
+          <label htmlFor='law'>Prawo</label>
+          <input type='checkbox' value='ethics' id='ethics' name='ethics' />
+          <label htmlFor='ethics'>Etyka</label>
+          <input
+            type='checkbox'
+            value='chemistry'
+            id='chemistry'
+            name='chemistry'
+          />
+          <label htmlFor='chemistry'>Chemia</label>
         </div>
       </span>
       <span>
         <h4>Poziom nauczania</h4>
-        <div>
-          <input type='checkbox' value='primary' />
-          <label for='primary'>Podstawówka</label>
-          <input type='checkbox' value='high' />
-          <label for='high'>Szkoła średnia</label>
-          <input type='checkbox' value='studies' />
-          <label for='studies'>Studia</label>
+        <div className={styles.form__levels}>
+          <input type='checkbox' value='primary' name='primary' id='primary' />
+          <label htmlFor='primary'>Podstawówka</label>
+          <input type='checkbox' value='high' name='high' id='high' />
+          <label htmlFor='high'>Szkoła średnia</label>
+          <input type='checkbox' value='studies' name='studies' id='studies' />
+          <label htmlFor='studies'>Studia</label>
         </div>
       </span>
       <span className={styles.form__buttons}>
