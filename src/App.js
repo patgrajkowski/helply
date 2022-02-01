@@ -6,6 +6,7 @@ import ForgotPassword from './routes/ForgotPassword/ForgotPassword';
 import Home from './routes/Home/Home';
 import Login from './routes/Login/Login';
 import NewPost from './routes/NewPost/NewPost';
+import Post from './routes/Post/Post';
 import Register from './routes/Register/Register';
 import ThemeContext from './store/ThemeContext';
 
@@ -27,6 +28,7 @@ function App() {
           />
           <Route path='/register' element={<Register theme={theme} />} />
           <Route path='/new-post' element={<NewPost theme={theme} />} />
+          <Route path='/post' element={<Post theme={theme} />} />
         </Routes>
       </Layout>
     </BrowserRouter>
