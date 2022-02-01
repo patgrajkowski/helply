@@ -1,9 +1,15 @@
 import React from 'react';
 import styles from './PostInfo.module.css';
 
-const PostInfo = () => {
+const PostInfo = ({ theme }) => {
   return (
-    <div className={styles.post}>
+    <div
+      className={
+        theme === 'light'
+          ? styles.post
+          : styles.post + ` ${styles['post-dark']}`
+      }
+    >
       <div className={styles.post__details}>
         <p>Cena:</p>
         <p>50</p>
@@ -12,7 +18,6 @@ const PostInfo = () => {
         <p>Kategorie:</p>
         <div className={styles.post__categories}>
           <p className={styles.post__category}>Język polski</p>
-
         </div>
         <p>Poziom nauczania:</p>
         <div>
