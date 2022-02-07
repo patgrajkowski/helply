@@ -14,8 +14,10 @@ const Post = ({ theme }) => {
     >
       <div className={styles.post__wrapper}>
         <h1>Tytuł ogłoszenia</h1>
-        <PostInfo theme={theme} />
-        <UserInfo theme={theme} />
+        <div className={styles.post__details}>
+          <PostInfo theme={theme} />
+          <UserInfo theme={theme} className={styles.post__user} />
+        </div>
       </div>
     </div>
   );

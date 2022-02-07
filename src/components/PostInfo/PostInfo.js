@@ -11,17 +11,17 @@ const PostInfo = ({ theme }) => {
       }
     >
       <div className={styles.post__details}>
-        <p>Cena:</p>
+        <p className={styles.details__property}>Cena:</p>
         <p>50</p>
-        <p>Czas:</p>
+        <p className={styles.details__property}>Czas:</p>
         <p>60</p>
-        <p>Kategorie:</p>
-        <div className={styles.post__categories}>
-          <p className={styles.post__category}>Język polski</p>
+        <p className={styles.details__property}>Kategorie:</p>
+        <div className={styles.details__categories}>
+          <p className={styles.details__category}>Język polski</p>
         </div>
-        <p>Poziom nauczania:</p>
+        <p className={styles.details__property}>Poziom nauczania:</p>
         <div>
-          <p className={styles.post__level}>Gimnazjum</p>
+          <p className={styles.details__level}>Gimnazjum</p>
         </div>
       </div>
       <div className={styles.post__description}>

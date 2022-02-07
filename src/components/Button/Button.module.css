@@ -1,4 +1,5 @@
 .button {
+  box-sizing: border-box;
   all: unset;
   cursor: pointer;
   border: 1px solid #ff6c37;

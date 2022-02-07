@@ -1,5 +1,5 @@
 .post {
-  width: 70%;
+  width: 800px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -24,7 +24,10 @@
   background-color: #ececec;
   bottom: -0.1rem;
 }
-
+.details__property {
+  color: black;
+  font-weight: 600;
+}
 /* DARK MODE */
 .post-dark {
   border-color: #363636;
@@ -32,4 +35,16 @@
 }
 .post-dark .post__details::after {
   background-color: #363636;
+}
+.post-dark .details__property {
+  color: white;
+}
+
+/* MOBILE VIEW */
+@media screen and (max-width: 1180px) {
+  .post {
+    width: 100%;
+    box-sizing: border-box;
+    border: 0;
+  }
 }

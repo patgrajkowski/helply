@@ -10,6 +10,7 @@ import Post from './routes/Post/Post';
 import Register from './routes/Register/Register';
 import ThemeContext from './store/ThemeContext';
 
+
 function App() {
   const themeContext = useContext(ThemeContext);
   const theme = themeContext.theme;
