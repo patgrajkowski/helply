@@ -6,10 +6,16 @@ import HumanisticSubcategories from './HumanisticSubcategories';
 import LanguageSubcategories from './LanguageSubcategories';
 import ScienceSubcategories from './ScienceSubcategories';
 
-const Categories = () => {
+const Categories = ({ theme }) => {
   const [activeCategory, setActiveCategory] = useState('none');
   return (
-    <div className={styles.wrapper}>
+    <div
+      className={
+        theme === 'light'
+          ? styles.wrapper
+          : styles.wrapper + ` ${styles['wrapper-dark']}`
+      }
+    >
       <div className={styles.categories__wrapper}>
         <ul className={styles.categories}>
           <li

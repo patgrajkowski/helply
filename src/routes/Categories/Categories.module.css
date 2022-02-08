@@ -64,3 +64,18 @@
   border-radius: 10px;
   padding: 0.5em;
 }
+
+/* DARK MODE */
+
+.wrapper-dark .categories__wrapper {
+  border-color: #363636;
+}
+.wrapper-dark .categories__element::after {
+  background-color: #363636;
+}
+.wrapper-dark .categories__element-selected::after {
+  background-color: #ff6c37;
+}
+.wrapper-dark .categories__element {
+  color: #a8a8a8;
+}
