@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useMediaQuery } from 'react-responsive';
 import BiologySubcategories from './BiologySubcategories';
 import styles from './Categories.module.css';
 import EconomicSubcategories from './EconomicSubcategories';
@@ -8,6 +9,7 @@ import ScienceSubcategories from './ScienceSubcategories';
 
 const Categories = ({ theme }) => {
   const [activeCategory, setActiveCategory] = useState('none');
+  const isMobile = useMediaQuery({ query: `(max-width: 620px)` });
   return (
     <div
       className={
@@ -31,6 +33,9 @@ const Categories = ({ theme }) => {
           >
             Języki obce
           </li>
+          {activeCategory === 'language' && isMobile && (
+            <LanguageSubcategories />
+          )}
           <li
             className={
               activeCategory !== 'humanistic'
@@ -44,6 +49,9 @@ const Categories = ({ theme }) => {
           >
             Humanistyczne
           </li>
+          {activeCategory === 'humanistic' && isMobile && (
+            <HumanisticSubcategories />
+          )}
           <li
             className={
               activeCategory !== 'science'
@@ -57,6 +65,7 @@ const Categories = ({ theme }) => {
           >
             Ścisłe
           </li>
+          {activeCategory === 'science' && isMobile && <ScienceSubcategories />}
           <li
             className={
               activeCategory !== 'biology'
@@ -70,6 +79,7 @@ const Categories = ({ theme }) => {
           >
             Przyrodnicze
           </li>
+          {activeCategory === 'biology' && isMobile && <BiologySubcategories />}
           <li
             className={
               activeCategory !== 'economic'
@@ -83,14 +93,19 @@ const Categories = ({ theme }) => {
           >
             Ekonomiczne
           </li>
+          {activeCategory === 'economic' && isMobile && (
+            <EconomicSubcategories />
+          )}
         </ul>
-        <ul className={styles.subcategories}>
-          {activeCategory === 'language' && <LanguageSubcategories />}
-          {activeCategory === 'humanistic' && <HumanisticSubcategories />}
-          {activeCategory === 'science' && <ScienceSubcategories />}
-          {activeCategory === 'biology' && <BiologySubcategories />}
-          {activeCategory === 'economic' && <EconomicSubcategories />}
-        </ul>
+        {!isMobile && (
+          <ul className={styles.subcategories}>
+            {activeCategory === 'language' && <LanguageSubcategories />}
+            {activeCategory === 'humanistic' && <HumanisticSubcategories />}
+            {activeCategory === 'science' && <ScienceSubcategories />}
+            {activeCategory === 'biology' && <BiologySubcategories />}
+            {activeCategory === 'economic' && <EconomicSubcategories />}
+          </ul>
+        )}
       </div>
     </div>
   );

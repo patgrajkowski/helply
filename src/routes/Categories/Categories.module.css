@@ -57,9 +57,9 @@
   gap: 1rem;
   height: 6rem;
   margin: 1.5rem 1rem;
-  color: white;
 }
 .subcategories__element {
+  color: white;
   background-color: #ff6c37;
   border-radius: 10px;
   padding: 0.5em;
@@ -78,4 +78,23 @@
 }
 .wrapper-dark .categories__element {
   color: #a8a8a8;
+}
+
+/* MOBILE VIEW */
+
+@media screen and (max-width: 620px) {
+  .wrapper {
+    margin: 0;
+  }
+  .categories {
+    flex-direction: column;
+    width: 100%;
+    gap: 1rem;
+  }
+  .categories__wrapper {
+    border: 0;
+  }
+  .categories__element::after {
+    bottom: -0.5rem;
+  }
 }
