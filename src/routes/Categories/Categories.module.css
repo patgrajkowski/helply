@@ -63,6 +63,7 @@
   background-color: #ff6c37;
   border-radius: 10px;
   padding: 0.5em;
+  text-decoration: none;
 }
 
 /* DARK MODE */
@@ -93,6 +94,11 @@
   }
   .categories__wrapper {
     border: 0;
+  }
+  .subcategories__element {
+    margin-bottom: 0.5rem;
+    display: inline-block;
+    width: 80%;
   }
   .categories__element::after {
     bottom: -0.5rem;
