@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './App.css';
 import Layout from './components/Layout/Layout';
 import Categories from './routes/Categories/Categories';
+import Category from './routes/Category/Category';
 import ForgotPassword from './routes/ForgotPassword/ForgotPassword';
 import Home from './routes/Home/Home';
 import Login from './routes/Login/Login';
@@ -31,6 +32,7 @@ function App() {
           <Route path='/new-post' element={<NewPost theme={theme} />} />
           <Route path='/post' element={<Post theme={theme} />} />
           <Route path='/categories' element={<Categories theme={theme} />} />
+          <Route path='/:category' element={<Category theme={theme} />} />
         </Routes>
       </Layout>
     </BrowserRouter>
