@@ -115,9 +115,12 @@
     justify-content: center;
     flex-direction: column;
     align-self: stretch;
+    padding-left: 0.3rem;
+    padding-right: 0.3rem;
   }
   .form__button {
-    width: 90%;
+    width: 100%;
+    box-sizing: border-box;
   }
   .form h3::after {
     width: 75%;
