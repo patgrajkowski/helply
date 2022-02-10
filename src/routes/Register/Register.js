@@ -19,7 +19,7 @@ const Register = ({ theme }) => {
         </p>
         <RegisterForm theme={theme} />
         <hr />
-        <p>
+        <p className={styles.paragraph}>
           Masz już konto? <Link to='/login'>Zaloguj się</Link>
         </p>
       </div>
