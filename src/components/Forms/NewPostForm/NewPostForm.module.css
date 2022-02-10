@@ -107,7 +107,8 @@
 @media screen and (max-width: 680px) {
   .form {
     width: 100%;
-    padding: 0;
+    box-sizing: border-box;
+    padding: 0 0.5rem;
     border: 0px;
   }
   .form__buttons {
