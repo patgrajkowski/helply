@@ -116,8 +116,6 @@
     justify-content: center;
     flex-direction: column;
     align-self: stretch;
-    padding-left: 0.3rem;
-    padding-right: 0.3rem;
   }
   .form__button {
     width: 100%;
