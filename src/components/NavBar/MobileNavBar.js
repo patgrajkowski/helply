@@ -4,7 +4,8 @@ import styles from './MobileNavBar.module.css';
 import logo from '../../images/logo.svg';
 import { NavLink } from 'react-router-dom';
 import DarkModeToggler from '../DarkModeToggler/DarkModeToggler';
-const MobileNavBar = ({ theme }) => {
+const MobileNavBar = ({ theme, auth }) => {
+  const { isAuth } = auth;
   const [menuOpen, setMenuOpen] = useState(false);
   const openMenu = () => {
     setMenuOpen(true);
@@ -58,22 +59,50 @@ const MobileNavBar = ({ theme }) => {
             </li>
             <span className={styles.nav__login}>
               <li>
-                <NavLink
-                  onClick={closeMenu}
-                  to='/login'
-                  className={styles.nav__link}
-                >
-                  Zaloguj się
-                </NavLink>
+                {!isAuth && (
+                  <NavLink
+                    to='/login'
+                    className={({ isActive }) =>
+                      isActive
+                        ? styles.nav__link + ` ${styles['nav__link-active']}`
+                        : styles.nav__link
+                    }
+                  >
+                    Zaloguj się
+                  </NavLink>
+                )}
+                {isAuth && (
+                  <NavLink
+                    to='/logout'
+                    className={({ isActive }) =>
+                      isActive
+                        ? styles.nav__link + ` ${styles['nav__link-active']}`
+                        : styles.nav__link
+                    }
+                  >
+                    Wyloguj się
+                  </NavLink>
+                )}
               </li>
               <li>
-                <NavLink
-                  onClick={closeMenu}
-                  to='/register'
-                  className={styles.login__button}
-                >
-                  Zarejestruj się
-                </NavLink>
+                {!isAuth && (
+                  <NavLink
+                    onClick={closeMenu}
+                    to='/register'
+                    className={styles.login__button}
+                  >
+                    Zarejestruj się
+                  </NavLink>
+                )}
+                {isAuth && (
+                  <NavLink
+                    onClick={closeMenu}
+                    to='/me'
+                    className={styles.login__button}
+                  >
+                    Moje konto
+                  </NavLink>
+                )}
               </li>
             </span>
           </ul>

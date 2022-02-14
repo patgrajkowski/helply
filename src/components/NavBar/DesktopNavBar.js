@@ -6,7 +6,8 @@ import { NavLink } from 'react-router-dom';
 import DarkModeToggler from '../DarkModeToggler/DarkModeToggler';
 import Button from '../Button/Button';
 
-const DesktopNavBar = ({ theme }) => {
+const DesktopNavBar = ({ theme, auth }) => {
+  const { isAuth } = auth;
   const navLinkClasses =
     theme === 'light'
       ? styles.nav__link
@@ -53,21 +54,42 @@ const DesktopNavBar = ({ theme }) => {
           </li>
           <span className={styles.nav__login}>
             <li>
-              <NavLink
-                to='/login'
-                className={({ isActive }) =>
-                  isActive
-                    ? styles.nav__link + ` ${styles['nav__link-active']}`
-                    : styles.nav__link
-                }
-              >
-                Zaloguj się
-              </NavLink>
+              {!isAuth && (
+                <NavLink
+                  to='/login'
+                  className={({ isActive }) =>
+                    isActive
+                      ? styles.nav__link + ` ${styles['nav__link-active']}`
+                      : styles.nav__link
+                  }
+                >
+                  Zaloguj się
+                </NavLink>
+              )}
+              {isAuth && (
+                <NavLink
+                  to='/logout'
+                  className={({ isActive }) =>
+                    isActive
+                      ? styles.nav__link + ` ${styles['nav__link-active']}`
+                      : styles.nav__link
+                  }
+                >
+                  Wyloguj się
+                </NavLink>
+              )}
             </li>
             <li>
-              <NavLink to='/register' className={styles.login__button}>
-                <Button primary='true'>Zarejestruj się</Button>
-              </NavLink>
+              {!isAuth && (
+                <NavLink to='/register' className={styles.login__button}>
+                  <Button primary='true'>Zarejestruj się</Button>
+                </NavLink>
+              )}
+              {isAuth && (
+                <NavLink to='/me' className={styles.login__button}>
+                  <Button>Moje konto</Button>
+                </NavLink>
+              )}
             </li>
           </span>
         </ul>

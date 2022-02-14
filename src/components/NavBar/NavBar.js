@@ -3,14 +3,14 @@ import { useMediaQuery } from 'react-responsive';
 import DesktopNavBar from './DesktopNavBar';
 import MobileNavBar from './MobileNavBar';
 
-const NavBar = ({ theme }) => {
+const NavBar = ({ theme, auth }) => {
   const isMobile = useMediaQuery({ query: `(max-width: 741px)` });
   return (
     <React.Fragment>
       {isMobile ? (
-        <MobileNavBar theme={theme} />
+        <MobileNavBar theme={theme} auth={auth} />
       ) : (
-        <DesktopNavBar theme={theme} />
+        <DesktopNavBar theme={theme} auth={auth} />
       )}
     </React.Fragment>
   );

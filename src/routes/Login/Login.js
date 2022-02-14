@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import LoginForm from '../../components/Forms/LoginForm/LoginForm';
 import styles from './Login.module.css';
-const Login = ({ theme }) => {
+const Login = ({ theme, auth }) => {
   return (
     <div
       className={
@@ -13,7 +13,7 @@ const Login = ({ theme }) => {
     >
       <div className={styles.form__wrapper}>
         <h1>Zaloguj się</h1>
-        <LoginForm theme={theme} />
+        <LoginForm theme={theme} auth={auth} />
         <hr></hr>
         <p>
           Nie masz konta? <Link to='/register'>Załóż konto</Link> za darmo

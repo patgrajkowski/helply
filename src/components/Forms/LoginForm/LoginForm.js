@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import * as Yup from 'yup';
 import { useFormik } from 'formik';
 import styles from '../Forms.module.css';
@@ -6,8 +6,8 @@ import Button from '../../Button/Button';
 import PasswordField from '../../Fields/PasswordField/PasswordField';
 import EmailField from '../../Fields/EmailField/EmailField';
 import { Link } from 'react-router-dom';
-
-const LoginForm = ({ theme }) => {
+import axios from 'axios';
+const LoginForm = ({ theme, auth }) => {
   const { handleSubmit, handleChange, handleBlur, values, touched, errors } =
     useFormik({
       initialValues: {
@@ -22,8 +22,23 @@ const LoginForm = ({ theme }) => {
           .min(6, 'Hasło musi posiadać conajmniej 6 znaków')
           .required('Hasło jest wymagane'),
       }),
-      onSubmit: ({ email, password }) => {
-        console.log(email, password);
+      onSubmit: async ({ email, password }) => {
+        const response = await axios.post(
+          `http://localhost:3002/api/auth/login`,
+          {
+            email,
+            password,
+          },
+          {
+            headers: {
+              'content-type': 'application/json',
+            },
+            withCredentials: true,
+          }
+        );
+        const { data } = response;
+        const { token } = data;
+        auth.setAccessToken(token);
       },
     });
   return (
@@ -53,7 +68,7 @@ const LoginForm = ({ theme }) => {
           onBlur={handleBlur}
           id='pasword'
           name='password'
-          type='text'
+          type='password'
           placeholder='Hasło'
         />
         {touched.password && errors.password ? (
