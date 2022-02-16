@@ -1,13 +1,14 @@
 import axios from 'axios';
 import { useFormik } from 'formik';
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import * as Yup from 'yup';
 import Button from '../../Button/Button';
 import InputField from '../../Fields/InputField/InputField';
 import TextArea from '../../Fields/TextArea/TextArea';
 import styles from './NewPostForm.module.css';
 const NewPostForm = ({ theme, auth }) => {
+  const navigate = useNavigate();
   const { handleSubmit, handleChange, handleBlur, values, touched, errors } =
     useFormik({
       initialValues: {
@@ -64,6 +65,7 @@ const NewPostForm = ({ theme, auth }) => {
               withCredentials: true,
             }
           );
+          navigate(`/post/${response.data}`);
         } catch (error) {
           console.log(error);
         }

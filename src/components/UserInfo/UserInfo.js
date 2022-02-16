@@ -3,7 +3,13 @@ import { MdStar, MdStarHalf } from 'react-icons/md';
 import Button from '../Button/Button';
 import styles from './UserInfo.module.css';
 
-const UserInfo = ({ theme }) => {
+const UserInfo = ({ theme, user }) => {
+  let { nickname, avatar, email } = user;
+  if (!nickname) nickname = email.split('@')[0];
+  console.log(email);
+  if (!avatar)
+    avatar =
+      'https://www.pphfoundation.ca/wp-content/uploads/2018/05/default-avatar-600x600.png';
   return (
     <div
       className={
@@ -12,13 +18,9 @@ const UserInfo = ({ theme }) => {
           : styles.user__info + ` ${styles['user__info-dark']}`
       }
     >
-      <img
-        src='https://www.pphfoundation.ca/wp-content/uploads/2018/05/default-avatar-600x600.png'
-        alt='userAvatar'
-        className={styles.user__avatar}
-      ></img>
+      <img src={avatar} alt='userAvatar' className={styles.user__avatar}></img>
       <div className={styles.rate__wrapper}>
-        <p className={styles.user__name}>Andrzej</p>
+        <p className={styles.user__name}>{nickname}</p>
         <span className={styles.user__rate}>
           <span className={styles.rate__stars}>
             <MdStar />

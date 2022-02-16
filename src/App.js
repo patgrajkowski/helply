@@ -64,7 +64,7 @@ function App() {
               )
             }
           />
-          <Route path='/post' element={<Post theme={theme} />} />
+          <Route path='/post/:id' element={<Post theme={theme} />} />
           <Route path='/categories' element={<Categories theme={theme} />} />
           <Route path='/:category' element={<Category theme={theme} />} />
           <Route path='/me' element={'elo'} />

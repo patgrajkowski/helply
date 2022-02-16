@@ -28,6 +28,10 @@
   color: black;
   font-weight: 600;
 }
+.post__description {
+  width: 100%;
+  overflow-wrap: break-word;
+}
 /* DARK MODE */
 .post-dark {
   border-color: #363636;
@@ -46,5 +50,8 @@
     width: 100%;
     box-sizing: border-box;
     border: 0;
+  }
+  .post__description {
+    word-break: break-all;
   }
 }
