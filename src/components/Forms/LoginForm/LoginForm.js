@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import * as Yup from 'yup';
 import { useFormik } from 'formik';
 import styles from '../Forms.module.css';
@@ -8,6 +8,7 @@ import EmailField from '../../Fields/EmailField/EmailField';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 const LoginForm = ({ theme, auth }) => {
+  const [forbidden, setForbidden] = useState(false);
   const { handleSubmit, handleChange, handleBlur, values, touched, errors } =
     useFormik({
       initialValues: {
@@ -23,26 +24,34 @@ const LoginForm = ({ theme, auth }) => {
           .required('Hasło jest wymagane'),
       }),
       onSubmit: async ({ email, password }) => {
-        const response = await axios.post(
-          `http://localhost:3002/api/auth/login`,
-          {
-            email,
-            password,
-          },
-          {
-            headers: {
-              'content-type': 'application/json',
+        try {
+          const response = await axios.post(
+            `http://localhost:3002/api/auth/login`,
+            {
+              email,
+              password,
             },
-            withCredentials: true,
-          }
-        );
-        const { data } = response;
-        const { token } = data;
-        auth.setAccessToken(token);
+            {
+              headers: {
+                'content-type': 'application/json',
+              },
+              withCredentials: true,
+            }
+          );
+          const { data } = response;
+          const { token } = data;
+          auth.setAccessToken(token);
+          setForbidden(false);
+        } catch (error) {
+          if (error.response.status === 403) setForbidden(true);
+        }
       },
     });
   return (
     <form onSubmit={handleSubmit} className={styles.form}>
+      {forbidden && (
+        <p className={styles.form__error}>Podano zły login bądź hasło.</p>
+      )}
       <span>
         <EmailField
           theme={theme}
@@ -77,7 +86,7 @@ const LoginForm = ({ theme, auth }) => {
           ''
         )}
       </span>
-      <Link to='/forgot-password'>Nie pamiętasz hasła?</Link>
+      <Link to='/forgot_password'>Nie pamiętasz hasła?</Link>
       <Button type='submit' id='register'>
         Zaloguj się
       </Button>
