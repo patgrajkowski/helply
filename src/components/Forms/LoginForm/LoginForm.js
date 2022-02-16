@@ -87,7 +87,7 @@ const LoginForm = ({ theme, auth }) => {
         )}
       </span>
       <Link to='/forgot_password'>Nie pamiętasz hasła?</Link>
-      <Button type='submit' id='register'>
+      <Button type='submit' id='login'>
         Zaloguj się
       </Button>
     </form>
