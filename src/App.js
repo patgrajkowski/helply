@@ -57,10 +57,10 @@ function App() {
           <Route
             path='/new-post'
             element={
-              isAuth ? (
-                <NewPost theme={theme} auth={auth} />
-              ) : (
+              !isAuth ? (
                 <Navigate to='/login' />
+              ) : (
+                <NewPost theme={theme} auth={auth} />
               )
             }
           />

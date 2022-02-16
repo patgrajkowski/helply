@@ -1,3 +1,4 @@
+import axios from 'axios';
 import { useFormik } from 'formik';
 import React from 'react';
 import { Link } from 'react-router-dom';
@@ -6,15 +7,16 @@ import Button from '../../Button/Button';
 import InputField from '../../Fields/InputField/InputField';
 import TextArea from '../../Fields/TextArea/TextArea';
 import styles from './NewPostForm.module.css';
-const NewPostForm = ({ theme }) => {
+const NewPostForm = ({ theme, auth }) => {
   const { handleSubmit, handleChange, handleBlur, values, touched, errors } =
     useFormik({
       initialValues: {
         title: '',
-        categories: '',
+        categories: [],
         price: '',
         time: '',
-        level: '',
+        level: [],
+        description: '',
       },
       validationSchema: Yup.object({
         title: Yup.string()
@@ -30,9 +32,41 @@ const NewPostForm = ({ theme }) => {
           1,
           'Musisz przypisać do ogłoszenia conajmniej jeden z poziomów nauczania'
         ),
+        description: Yup.string()
+          .min(50, 'Treść ogłoszenia musi mieć conajmniej 50 znaków')
+          .required('To pole jest wymagane'),
       }),
-      onSubmit: ({ title, categories, price, time, level }) => {
-        console.log(title, categories, price, time, level);
+      onSubmit: async ({
+        title,
+        categories,
+        price,
+        time,
+        level,
+        description,
+      }) => {
+        console.log(title, categories, price, time, level, description);
+        try {
+          const response = await axios.post(
+            `http://localhost:3002/api/posts/`,
+            {
+              title,
+              price,
+              time,
+              categories,
+              level,
+              description,
+              accessToken: auth.accessToken,
+            },
+            {
+              headers: {
+                'content-type': 'application/json',
+              },
+              withCredentials: true,
+            }
+          );
+        } catch (error) {
+          console.log(error);
+        }
       },
     });
   return (
@@ -42,6 +76,7 @@ const NewPostForm = ({ theme }) => {
           ? styles.form
           : styles.form + ` ${styles['form-dark']}`
       }
+      onSubmit={handleSubmit}
     >
       <h3>Podstawowe informacje</h3>
       <InputField
@@ -49,24 +84,39 @@ const NewPostForm = ({ theme }) => {
         className='text__input'
         type='text'
         theme={theme}
+        name='title'
+        value={values.title}
+        onChange={handleChange}
+        onBlur={handleBlur}
       />
       <InputField
         placeholder='Cena za lekcję'
         className={styles.number__input}
         type='number'
         theme={theme}
+        name='price'
+        value={values.price}
+        onChange={handleChange}
+        onBlur={handleBlur}
       />
       <InputField
         placeholder='Czas lekcji'
         className={styles.number__input}
         type='number'
         theme={theme}
+        name='time'
+        value={values.time}
+        onChange={handleChange}
+        onBlur={handleBlur}
       />
       <h3>Dodatkowe informacje</h3>
       <TextArea
         placeholder='Treść ogłoszenia'
         className={styles.form__textarea}
         theme={theme}
+        value={values.description}
+        onChange={handleChange}
+        name='description'
       ></TextArea>
       <span>
         <h4>Kategorie</h4>
@@ -76,93 +126,151 @@ const NewPostForm = ({ theme }) => {
             <input
               type='checkbox'
               value='english'
-              name='category'
+              name='categories'
               id='english'
+              onChange={handleChange}
             />
             <label htmlFor='english'>Angielski</label>
-            <input type='checkbox' value='dutch' name='category' id='dutch' />
+            <input
+              type='checkbox'
+              value='dutch'
+              name='categories'
+              onChange={handleChange}
+              id='dutch'
+            />
             <label htmlFor='dutch'>Niemiecki</label>
-            <input type='checkbox' value='french' name='category' id='french' />
+            <input
+              type='checkbox'
+              value='french'
+              name='categories'
+              onChange={handleChange}
+              id='french'
+            />
             <label htmlFor='french'>Francuski</label>
             <input
               type='checkbox'
               value='spanish'
-              name='category'
+              name='categories'
+              onChange={handleChange}
               id='spanish'
             />
             <label htmlFor='spanish'>Hiszpański</label>
             <input
               type='checkbox'
               value='hungarian'
-              name='category'
+              name='categories'
+              onChange={handleChange}
               id='hungarian'
             />
             <label htmlFor='hungarian'>Węgierski</label>
             <input
               type='checkbox'
               value='russian'
-              name='category'
+              name='categories'
+              onChange={handleChange}
               id='russian'
             />
             <label htmlFor='russian'>Rosyjski</label>
           </div>
           <div className={styles.categories__subcategory}>
             <p className={styles.subcategory__name}>Humanistyczne</p>
-            <input type='checkbox' value='polish' id='polish' name='category' />
+            <input
+              type='checkbox'
+              value='polish'
+              id='polish'
+              name='categories'
+              onChange={handleChange}
+            />
             <label htmlFor='polish'>Język polski</label>
             <input
               type='checkbox'
               value='history'
               id='history'
-              name='category'
+              name='categories'
+              onChange={handleChange}
             />
             <label htmlFor='history'>Historia</label>
             <input
               type='checkbox'
               value='philosophy'
               id='philosophy'
-              name='category'
+              name='categories'
+              onChange={handleChange}
             />
             <label htmlFor='philosophy'>Filozofia</label>
-            <input type='checkbox' value='law' id='law' name='category' />
+            <input
+              type='checkbox'
+              value='law'
+              id='law'
+              name='categories'
+              onChange={handleChange}
+            />
             <label htmlFor='law'>Prawo</label>
-            <input type='checkbox' value='ethics' id='ethics' name='category' />
+            <input
+              type='checkbox'
+              value='ethics'
+              id='ethics'
+              name='categories'
+              onChange={handleChange}
+            />
             <label htmlFor='ethics'>Etyka</label>
           </div>
           <div className={styles.categories__subcategory}>
             <p className={styles.subcategory__name}>Ścisłe</p>
-            <input type='checkbox' value='math' id='math' name='category' />
+            <input
+              type='checkbox'
+              value='math'
+              id='math'
+              name='categories'
+              onChange={handleChange}
+            />
             <label htmlFor='math'>Matematyka</label>
             <input
               type='checkbox'
               value='robotics'
               id='robotics'
-              name='category'
+              name='categories'
+              onChange={handleChange}
             />
             <label htmlFor='robotics'>Robotyka</label>
             <input
               type='checkbox'
               value='electrotechnics'
               id='electrotechnics'
-              name='category'
+              name='categories'
+              onChange={handleChange}
             />
             <label htmlFor='electrotechnics'>Elektrotechnika</label>
-            <input type='checkbox' value='coding' id='coding' name='category' />
+            <input
+              type='checkbox'
+              value='coding'
+              id='coding'
+              name='categories'
+              onChange={handleChange}
+            />
             <label htmlFor='coding'>Programowanie</label>
-            <input type='checkbox' value='it' id='it' name='category' />
+            <input
+              type='checkbox'
+              value='it'
+              id='it'
+              name='categories'
+              onChange={handleChange}
+            />
             <label htmlFor='it'>Informatyka</label>
             <input
               type='checkbox'
               value='physics'
               id='physics'
-              name='category'
+              name='categories'
+              onChange={handleChange}
             />
             <label htmlFor='physics'>Fizyka</label>
             <input
               type='checkbox'
               value='architecture'
               id='architecture'
-              name='category'
+              name='categories'
+              onChange={handleChange}
             />
             <label htmlFor='architecture'>Architektura</label>
           </div>
@@ -172,35 +280,40 @@ const NewPostForm = ({ theme }) => {
               type='checkbox'
               value='biology'
               id='biology'
-              name='category'
+              name='categories'
+              onChange={handleChange}
             />
             <label htmlFor='biology'>Biologia</label>
             <input
               type='checkbox'
               value='geography'
               id='geography'
-              name='category'
+              name='categories'
+              onChange={handleChange}
             />
             <label htmlFor='geography'>Geografia</label>
             <input
               type='checkbox'
               value='chemistry'
               id='chemistry'
-              name='category'
+              name='categories'
+              onChange={handleChange}
             />
             <label htmlFor='chemistry'>Chemia</label>
             <input
               type='checkbox'
               value='geodesy'
               id='geodesy'
-              name='category'
+              name='categories'
+              onChange={handleChange}
             />
             <label htmlFor='geodesy'>Geodezja</label>
             <input
               type='checkbox'
               value='medicine'
               id='medicine'
-              name='category'
+              name='categories'
+              onChange={handleChange}
             />
             <label htmlFor='medicine'>Medycyna</label>
           </div>
@@ -210,35 +323,40 @@ const NewPostForm = ({ theme }) => {
               type='checkbox'
               value='marketing'
               id='marketing'
-              name='marketing'
+              name='categories'
+              onChange={handleChange}
             />
             <label htmlFor='marketing'>Marketing</label>
             <input
               type='checkbox'
               value='counting'
               id='counting'
-              name='counting'
+              name='categories'
+              onChange={handleChange}
             />
             <label htmlFor='counting'>Rachunkowość</label>
             <input
               type='checkbox'
               value='finances'
               id='finances'
-              name='category'
+              name='categories'
+              onChange={handleChange}
             />
             <label htmlFor='finances'>Finanse</label>
             <input
               type='checkbox'
               value='banking'
               id='banking'
-              name='banking'
+              name='categories'
+              onChange={handleChange}
             />
             <label htmlFor='banking'>Bankowość</label>
             <input
               type='checkbox'
               value='management'
               id='management'
-              name='management'
+              name='categories'
+              onChange={handleChange}
             />
             <label htmlFor='management'>Zarządzanie</label>
           </div>
@@ -247,11 +365,29 @@ const NewPostForm = ({ theme }) => {
       <span>
         <h4>Poziom nauczania</h4>
         <div className={styles.form__levels}>
-          <input type='checkbox' value='primary' name='level' id='primary' />
+          <input
+            type='checkbox'
+            value='primary'
+            name='level'
+            id='primary'
+            onChange={handleChange}
+          />
           <label htmlFor='primary'>Podstawówka</label>
-          <input type='checkbox' value='high' name='level' id='high' />
+          <input
+            type='checkbox'
+            value='high'
+            name='level'
+            id='high'
+            onChange={handleChange}
+          />
           <label htmlFor='high'>Szkoła średnia</label>
-          <input type='checkbox' value='studies' name='level' id='studies' />
+          <input
+            type='checkbox'
+            value='studies'
+            name='level'
+            id='studies'
+            onChange={handleChange}
+          />
           <label htmlFor='studies'>Studia</label>
         </div>
       </span>
@@ -259,7 +395,12 @@ const NewPostForm = ({ theme }) => {
         <Link to='/'>
           <Button className={styles.form__button}>Anuluj</Button>
         </Link>
-        <Button className={styles.form__button} type='submit' primary='true'>
+        <Button
+          className={styles.form__button}
+          type='submit'
+          id='add'
+          primary='true'
+        >
           Dodaj
         </Button>
       </span>
