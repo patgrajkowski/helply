@@ -18,6 +18,8 @@ const Post = ({ theme }) => {
     nickname: '',
     avatar: '',
     email: '',
+    score: 0,
+    numberOfratings: 0,
   });
   const { id } = useParams();
   const fetchPost = async () => {
