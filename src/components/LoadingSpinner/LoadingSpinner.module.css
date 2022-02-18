@@ -17,10 +17,7 @@
   width: 6px;
   height: 18px;
   border-radius: 20%;
-  background: white;
-}
-.lds-spinner-dark div:after {
-  background: #202020;
+  background: #ff6c37;
 }
 .lds-spinner div:nth-child(1) {
   transform: rotate(0deg);

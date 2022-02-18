@@ -1,12 +1,8 @@
 import React from 'react';
 import styles from './LoadingSpinner.module.css';
-const LoadingSpinner = ({ theme, size }) => {
-  const spinnerClasses =
-    theme === 'light'
-      ? ` ${styles['lds-spinner']} ${styles['lds-spinner-dark']}`
-      : `${styles['lds-spinner']}`;
+const LoadingSpinner = () => {
   return (
-    <div className={spinnerClasses}>
+    <div className={`${styles['lds-spinner']}`}>
       <div></div>
       <div></div>
       <div></div>
