@@ -1,7 +1,25 @@
-import React from 'react';
-import { MdStar, MdStarHalf } from 'react-icons/md';
+import axios from 'axios';
+import React, { useEffect, useState } from 'react';
 import styles from './TutorCard.module.css';
-const TutorCard = ({ theme }) => {
+import { getNickname } from '../../helpers/getNickname';
+import { translateCategory } from '../../helpers/translateCategory';
+const TutorCard = ({ theme, title, level, userId }) => {
+  const [user, setUser] = useState({
+    nickname: '',
+    email: '',
+    score: 0,
+    numberOfRatings: 0,
+  });
+  const getUser = async () => {
+    const response = await axios.get(
+      `http://localhost:3002/api/users/${userId}/short`
+    );
+    const { data } = response;
+    setUser(data);
+  };
+  useEffect(() => {
+    getUser();
+  }, []);
   return (
     <div
       className={
@@ -9,8 +27,10 @@ const TutorCard = ({ theme }) => {
       }
     >
       <span className={styles.ad__details}>
-        <h3 className={styles.details__subject}>Język angielski</h3>
-        <h3 className={styles.details__level}>Technikum</h3>
+        <h3 className={styles.details__subject}>{title}</h3>
+        <h3 className={styles.details__level}>
+          {level.map((l) => `${translateCategory(l)} `)}
+        </h3>
       </span>
       <div className={styles.ad__user}>
         <img
@@ -18,16 +38,18 @@ const TutorCard = ({ theme }) => {
           alt='avatar'
           className={styles.user__img}
         />
-        <h3 className={styles.user__name}>Andrzej</h3>
+        <h3 className={styles.user__name}>
+          {getNickname(user.nickname, user.email)}
+        </h3>
         <span className={styles.user__rate}>
-          <span className={styles.rate__stars}>
-            <MdStar />
-            <MdStar />
-            <MdStar />
-            <MdStar />
-            <MdStarHalf />
-          </span>
-          <p>(123 ocen)</p>
+          {user.numberOfRatings ? (
+            <React.Fragment>
+              renderStars(user.score/user.numberOfRatings, styles)
+              <p>{user.numberOfRatings}</p>
+            </React.Fragment>
+          ) : (
+            <p>Brak ocen</p>
+          )}
         </span>
       </div>
     </div>

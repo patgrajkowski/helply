@@ -1,13 +1,37 @@
-import React from 'react';
+import axios from 'axios';
+import React, { useEffect, useState } from 'react';
+import LoadingSpinner from '../LoadingSpinner/LoadingSpinner';
 import TutorCard from '../TutorCard/TutorCard';
 import styles from './LatestSection.module.css';
 
 const LatestSection = ({ theme }) => {
+  const [latestPosts, setLatestPosts] = useState(['post', 'post']);
+  const [loading, setLoading] = useState(true);
+  const getLatestPosts = async () => {
+    const response = await axios.get('http://localhost:3002/api/posts?limit=5');
+    const { data } = response;
+    setLatestPosts(data);
+    setLoading(false);
+  };
+  useEffect(() => {
+    setLoading(true);
+    getLatestPosts();
+  }, []);
   return (
     <div className={styles.wrapper}>
-      <TutorCard theme={theme} />
-      <TutorCard theme={theme} />
-      <TutorCard theme={theme} />
+      {loading ? (
+        <LoadingSpinner />
+      ) : (
+        latestPosts.map(({ title, level, userId }) => (
+          <TutorCard
+            theme={theme}
+            title={title}
+            level={level}
+            userId={userId}
+            key={userId}
+          />
+        ))
+      )}
     </div>
   );
 };
