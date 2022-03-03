@@ -3,13 +3,18 @@ import React, { useEffect, useState } from 'react';
 import styles from './TutorCard.module.css';
 import { getNickname } from '../../helpers/getNickname';
 import { translateCategory } from '../../helpers/translateCategory';
-const TutorCard = ({ theme, title, level, userId }) => {
+import { useNavigate } from 'react-router';
+const TutorCard = ({ theme, title, level, userId, postId }) => {
   const [user, setUser] = useState({
     nickname: '',
     email: '',
     score: 0,
     numberOfRatings: 0,
   });
+  const navigate = useNavigate();
+  const onClickHandler = () => {
+    navigate(`/post/${postId}`);
+  };
   const getUser = async () => {
     const response = await axios.get(
       `http://localhost:3002/api/users/${userId}/short`
@@ -25,6 +30,7 @@ const TutorCard = ({ theme, title, level, userId }) => {
       className={
         theme === 'light' ? `${styles.ad}` : `${styles.ad} ${styles['ad-dark']}`
       }
+      onClick={onClickHandler}
     >
       <span className={styles.ad__details}>
         <h3 className={styles.details__subject}>{title}</h3>
