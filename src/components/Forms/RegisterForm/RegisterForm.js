@@ -28,7 +28,7 @@ const RegisterForm = ({ theme, auth }) => {
       onSubmit: async ({ email, password }) => {
         try {
           const response = await axios.post(
-            `http://localhost:3002/api/users/register`,
+            `https://helply-backend.herokuapp.com/api/users/register`,
             {
               email,
               password,

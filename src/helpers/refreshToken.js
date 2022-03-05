@@ -1,4 +1,4 @@
-const uri = 'http://localhost:3002';
+const uri = 'https://helply-backend.herokuapp.com';
 export const refreshToken = async (url) => {
   fetch(`${uri}/api/auth/refresh_token`, {
     method: 'POST',

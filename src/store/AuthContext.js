@@ -10,7 +10,7 @@ export const AuthContextProvider = (props) => {
   const [token, setToken] = useState('');
   useEffect(() => {
     const refreshToken = async (url) => {
-      fetch(`http://localhost:3002/api/auth/refresh_token`, {
+      fetch(`https://helply-backend.herokuapp.com/api/auth/refresh_token`, {
         method: 'POST',
         credentials: 'include',
       }).then(async (x) => {

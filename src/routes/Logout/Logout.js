@@ -5,7 +5,7 @@ const Logout = ({ theme, auth }) => {
   useEffect(() => {
     const logout = async () => {
       const response = await axios.post(
-        `http://localhost:3002/api/auth/logout`,
+        `https://helply-backend.herokuapp.com/api/auth/logout`,
         {},
         {
           headers: {

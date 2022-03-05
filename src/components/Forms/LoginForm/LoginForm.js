@@ -26,7 +26,7 @@ const LoginForm = ({ theme, auth }) => {
       onSubmit: async ({ email, password }) => {
         try {
           const response = await axios.post(
-            `http://localhost:3002/api/auth/login`,
+            `https://helply-backend.herokuapp.com/api/auth/login`,
             {
               email,
               password,

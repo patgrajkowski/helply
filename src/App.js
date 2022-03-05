@@ -8,6 +8,7 @@ import ForgotPassword from './routes/ForgotPassword/ForgotPassword';
 import Home from './routes/Home/Home';
 import Login from './routes/Login/Login';
 import Logout from './routes/Logout/Logout';
+import Me from './routes/Me/Me';
 import NewPost from './routes/NewPost/NewPost';
 import Post from './routes/Post/Post';
 import Register from './routes/Register/Register';
@@ -67,7 +68,7 @@ function App() {
           <Route path='/post/:id' element={<Post theme={theme} />} />
           <Route path='/categories' element={<Categories theme={theme} />} />
           <Route path='/:category' element={<Category theme={theme} />} />
-          <Route path='/me' element={'elo'} />
+          <Route path='/me' element={<Me theme={theme}></Me>} />
           <Route
             path='/logout'
             element={<Logout theme={theme} auth={auth} />}

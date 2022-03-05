@@ -17,7 +17,7 @@ const TutorCard = ({ theme, title, level, userId, postId }) => {
   };
   const getUser = async () => {
     const response = await axios.get(
-      `http://localhost:3002/api/users/${userId}/short`
+      `https://helply-backend.herokuapp.com/api/users/${userId}/short`
     );
     const { data } = response;
     setUser(data);
