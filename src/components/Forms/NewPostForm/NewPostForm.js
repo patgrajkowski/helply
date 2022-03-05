@@ -9,7 +9,7 @@ import TextArea from '../../Fields/TextArea/TextArea';
 import styles from './NewPostForm.module.css';
 const NewPostForm = ({ theme, auth }) => {
   const navigate = useNavigate();
-  const { handleSubmit, handleChange, handleBlur, values, touched, errors } =
+  const { handleSubmit, handleChange, handleBlur, values} =
     useFormik({
       initialValues: {
         title: '',
