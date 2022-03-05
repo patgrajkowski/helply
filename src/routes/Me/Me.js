@@ -1,20 +1,65 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styles from './Me.module.css';
-const Me = () => {
+const Me = ({ theme }) => {
+  const [activeSetting, setActiveSetting] = useState('Moje ogłoszenia');
+  const onClickHandler = (event) => {
+    setActiveSetting(event.target.id);
+  };
   return (
-    <div>
-      <div>
-        <h1>Moje Konto</h1>
-        <div className={styles.settings}>
+    <div
+      className={
+        theme === 'light'
+          ? styles.wrapper
+          : styles.wrapper + ` ${styles['wrapper-dark']}`
+      }
+    >
+      <div className={styles.settings}>
+        <div className={styles.settings__menu}>
+          <h1>Moje konto</h1>
           <ul>
-            <li>Moje ogłoszenia</li>
-            <li>Ustawienia</li>
-            <li>Moje opinie</li>
-            <li>Usuń konto</li>
+            <li
+              onClick={onClickHandler}
+              id='Moje ogłoszenia'
+              className={
+                activeSetting === 'Moje ogłoszenia' ? styles.menu__active : ''
+              }
+            >
+              Moje ogłoszenia
+            </li>
+            <li
+              onClick={onClickHandler}
+              id='Moje opinie'
+              className={
+                activeSetting === 'Moje opinie' ? styles.menu__active : ''
+              }
+            >
+              Moje opinie
+            </li>
+            <li
+              onClick={onClickHandler}
+              id='Ustawienia'
+              className={
+                activeSetting === 'Ustawienia' ? styles.menu__active : ''
+              }
+            >
+              Ustawienia
+            </li>
+            <li
+              onClick={onClickHandler}
+              id='Usuń konto'
+              className={
+                activeSetting === 'Usuń konto' ? styles.menu__active : ''
+              }
+            >
+              Usuń konto
+            </li>
           </ul>
         </div>
+        <div className={styles.settings__content}>
+          <h1>{activeSetting}</h1>
+          <div></div>
+        </div>
       </div>
-      <div>Conent</div>
     </div>
   );
 };
