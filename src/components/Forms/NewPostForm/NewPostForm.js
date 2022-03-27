@@ -45,7 +45,6 @@ const NewPostForm = ({ theme, auth }) => {
         level,
         description,
       }) => {
-        console.log(title, categories, price, time, level, description);
         try {
           const response = await axios.post(
             `https://helply-backend.herokuapp.com/api/posts/`,

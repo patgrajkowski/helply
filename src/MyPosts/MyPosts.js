@@ -9,7 +9,6 @@ const MyPosts = ({ token: accessToken, theme }) => {
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(true);
   const getPosts = async (token) => {
-    console.log(`TOKEN ${token}`);
     const response = await axios.post(
       `https://helply-backend.herokuapp.com/api/posts/user/me`,
       { accessToken }

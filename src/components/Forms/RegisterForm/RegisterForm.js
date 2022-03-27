@@ -10,7 +10,6 @@ import { Link } from 'react-router-dom';
 
 const RegisterForm = ({ theme, auth }) => {
   const [alreadyRegistered, setAlreadyRegistered] = useState(false);
-  console.log(alreadyRegistered);
   const { handleSubmit, handleChange, handleBlur, values, touched, errors } =
     useFormik({
       initialValues: {
