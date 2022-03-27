@@ -4,7 +4,7 @@ import styles from './TutorCard.module.css';
 import { getNickname } from '../../helpers/getNickname';
 import { translateCategory } from '../../helpers/translateCategory';
 import { useNavigate } from 'react-router';
-const TutorCard = ({ theme, title, level, userId, postId }) => {
+const TutorCard = ({ theme, title, level, userId, postId, alternative }) => {
   const [user, setUser] = useState({
     nickname: '',
     email: '',
@@ -26,6 +26,7 @@ const TutorCard = ({ theme, title, level, userId, postId }) => {
     getUser();
   }, []);
   return (
+    // DEFAULT VERSION
     <div
       className={
         theme === 'light' ? `${styles.ad}` : `${styles.ad} ${styles['ad-dark']}`

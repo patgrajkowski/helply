@@ -88,12 +88,6 @@
   right: -0.5rem;
   background: #ececec;
 }
-/* MOBILE VIEW */
-@media screen and (max-width: 630px) {
-  .ad {
-    width: 90%;
-  }
-}
 /* DARK MODE */
 .ad-dark {
   border: 1px #363636 solid;

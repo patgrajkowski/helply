@@ -68,7 +68,7 @@ function App() {
           <Route path='/post/:id' element={<Post theme={theme} />} />
           <Route path='/categories' element={<Categories theme={theme} />} />
           <Route path='/:category' element={<Category theme={theme} />} />
-          <Route path='/me' element={<Me theme={theme}></Me>} />
+          <Route path='/me' element={<Me theme={theme} auth={auth}></Me>} />
           <Route
             path='/logout'
             element={<Logout theme={theme} auth={auth} />}

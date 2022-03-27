@@ -1,0 +1,11 @@
+.wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+.post {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem 0;
+}

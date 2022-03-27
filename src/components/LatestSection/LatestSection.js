@@ -5,11 +5,11 @@ import TutorCard from '../TutorCard/TutorCard';
 import styles from './LatestSection.module.css';
 
 const LatestSection = ({ theme }) => {
-  const [latestPosts, setLatestPosts] = useState(['post', 'post']);
+  const [latestPosts, setLatestPosts] = useState([]);
   const [loading, setLoading] = useState(true);
   const getLatestPosts = async () => {
     const response = await axios.get(
-      'https://helply-backend.herokuapp.com/api/posts?limit=5'
+      'https://helply-backend.herokuapp.com/api/posts/all?limit=5'
     );
     const { data } = response;
     setLatestPosts(data);

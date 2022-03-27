@@ -1,6 +1,10 @@
 import React, { useState } from 'react';
+import DeleteAccount from '../../DeleteAccount/DeleteAccount';
+import MyComments from '../../MyComments/MyComments';
+import MyPosts from '../../MyPosts/MyPosts';
+import Settings from '../../Settings/Settings';
 import styles from './Me.module.css';
-const Me = ({ theme }) => {
+const Me = ({ theme, auth }) => {
   const [activeSetting, setActiveSetting] = useState('Moje ogłoszenia');
   const onClickHandler = (event) => {
     setActiveSetting(event.target.id);
@@ -55,9 +59,16 @@ const Me = ({ theme }) => {
             </li>
           </ul>
         </div>
-        <div className={styles.settings__content}>
+        <div className={styles.settings__wrapper}>
           <h1>{activeSetting}</h1>
-          <div></div>
+          <div className={styles.settings__content}>
+            {activeSetting === 'Moje ogłoszenia' && (
+              <MyPosts token={auth.accessToken} theme={theme} />
+            )}
+            {activeSetting === 'Moje opinie' && <MyComments />}
+            {activeSetting === 'Ustawienia' && <Settings theme={theme} />}
+            {activeSetting === 'Usuń konto' && <DeleteAccount />}
+          </div>
         </div>
       </div>
     </div>

@@ -24,7 +24,7 @@ const Post = ({ theme }) => {
   const { id } = useParams();
   const fetchPost = async () => {
     const response = await axios.get(
-      `https://helply-backend.herokuapp.com/api/posts/${id}`
+      `https://helply-backend.herokuapp.com/api/posts/postid/${id}`
     );
     const { data } = response;
     setLoading(false);
