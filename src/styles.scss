@@ -12,6 +12,14 @@ body {
   font-family: "Inter", sans-serif;
   line-height: 1.6;
 }
+.wrap {
+  width: 100%;
+  max-width: 1666px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-right: 1rem;
+  padding-left: 1rem;
+}
 .button {
   border-radius: 0.5rem;
   cursor: pointer;
@@ -21,7 +29,8 @@ body {
   background-color: $main-color-400;
   color: white;
   transition: all 0.3s ease-in-out;
-  &:hover {
+  &:hover,
+  &.active {
     background-color: $main-color-800;
   }
 }
@@ -30,7 +39,8 @@ body {
   font-weight: 600;
   color: $gray-color-400;
   transition: all 0.3s ease-in-out;
-  &:hover {
+  &:hover,
+  &.active {
     color: $main-color-400;
   }
 }
