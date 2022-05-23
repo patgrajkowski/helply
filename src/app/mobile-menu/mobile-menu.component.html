@@ -1,0 +1,20 @@
+<nav class="wrap h-full pt-10">
+    <ul class="pr-4 flex flex-col gap-10">
+        <li><a class="button-inline text-4xl"
+               routerLink="/categories"
+               routerLinkActive="active"
+               (click)="emitClick()">Kategorie</a></li>
+        <li><a class="button-inline text-4xl"
+               routerLink="/new-post"
+               routerLinkActive="active"
+               (click)="emitClick()">Dodaj ogłoszenie</a></li>
+        <li><a class="button-inline text-4xl"
+               routerLink="/login"
+               routerLinkActive="active"
+               (click)="emitClick()">Zaloguj się</a></li>
+        <li><a class="button text-4xl"
+               routerLink="/register"
+               routerLinkActive="active"
+               (click)="emitClick()">Zarejestruj się</a></li>
+    </ul>
+</nav>

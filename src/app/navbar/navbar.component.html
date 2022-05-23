@@ -1,4 +1,4 @@
-<nav [ifSize]="'S'"
+<nav *ifSize="'L'"
      class="h-20 border-b border-gray-300 w-full flex justify-between">
     <span class="flex gap-2 items-center">
         <img src="../../assets/images/helply-logo.svg"
@@ -6,18 +6,30 @@
         <app-theme-switcher></app-theme-switcher>
     </span>
     <ul class="pr-4 flex items-center gap-4">
-        <li><a class="button-inline"
+        <li><a class="button-inline text-lg"
                routerLink="/categories"
                routerLinkActive="active">Kategorie</a></li>
-        <li><a class="button-inline"
+        <li><a class="button-inline text-lg"
                routerLink="/new-post"
                routerLinkActive="active">Dodaj ogłoszenie</a></li>
-        <li><a class="button-inline"
+        <li><a class="button-inline text-lg"
                routerLink="/login"
                routerLinkActive="active">Zaloguj się</a></li>
-        <li><a class="button"
+        <li><a class="button text-lg"
                routerLink="/register"
                routerLinkActive="active">Zarejestruj się</a></li>
     </ul>
 </nav>
-<router-outlet></router-outlet>
+<nav *ifSize="'S'"
+     class="h-20 border-b border-gray-300 w-full flex justify-between items-center wrap">
+    <button (click)="toggleMenu()">
+        <mat-icon class="text-gray-300 text-5xl">{{showMenu ? 'close' : 'menu'}}</mat-icon>
+    </button>
+    <img src="../../assets/images/helply-logo.svg"
+         class="pl-4 h-10">
+    <app-theme-switcher></app-theme-switcher>
+</nav>
+<ng-container *ifSize="'S'">
+    <app-mobile-menu *ngIf="showMenu"
+                     (clickedEvent)="toggleMenu()"></app-mobile-menu>
+</ng-container>

@@ -1,11 +1,51 @@
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@use "@angular/material" as mat;
+// Plus imports for other components in your app.
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat.core();
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+$helply-primary: mat.define-palette(mat.$indigo-palette);
+$helply-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
+
+// The warn palette is optional (defaults to red).
+$helply-warn: mat.define-palette(mat.$red-palette);
+
+// Create the theme object. A theme consists of configurations for individual
+// theming systems such as "color" or "typography".
+$helply-theme: mat.define-light-theme(
+  (
+    color: (
+      primary: $helply-primary,
+      accent: $helply-accent,
+      warn: $helply-warn,
+    ),
+  )
+);
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include mat.all-component-themes($helply-theme);
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;900&display=swap");
 $main-color-400: #ff6c37;
 $main-color-800: rgb(223, 76, 22);
-$gray-color-400: rgb(161 161 170);
+$gray-color-400: #a8a8a8;
+html,
+body {
+  height: 100%;
+}
 body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -23,7 +63,7 @@ body {
 .button {
   border-radius: 0.5rem;
   cursor: pointer;
-  font-weight: 600;
+  font-weight: 500;
   padding: 0.6rem;
   text-align: center;
   background-color: $main-color-400;
@@ -36,11 +76,14 @@ body {
 }
 .button-inline {
   cursor: pointer;
-  font-weight: 600;
+  font-weight: 500;
   color: $gray-color-400;
   transition: all 0.3s ease-in-out;
   &:hover,
   &.active {
     color: $main-color-400;
   }
+}
+.mat-icon {
+  height: unset !important;
 }

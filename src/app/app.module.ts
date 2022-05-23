@@ -10,6 +10,9 @@ import { RegisterComponent } from './register/register.component';
 import { CategoriesComponent } from './categories/categories.component';
 import { NewPostComponent } from './new-post/new-post.component';
 import { IfSizeDirective } from './if-size.directive';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MaterialModule } from './shared/modules/material/material.module';
+import { MobileMenuComponent } from './mobile-menu/mobile-menu.component';
 
 @NgModule({
   declarations: [
@@ -20,13 +23,16 @@ import { IfSizeDirective } from './if-size.directive';
     RegisterComponent,
     CategoriesComponent,
     NewPostComponent,
-    IfSizeDirective
+    IfSizeDirective,
+    MobileMenuComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    MaterialModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
